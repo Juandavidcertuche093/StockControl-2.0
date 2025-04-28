@@ -1,0 +1,63 @@
+<h2 mat-dialog-title class="text-center text-2xl font-bold text-gray-800">
+  {{ tituloAccion }} Usuario
+</h2>
+
+<mat-dialog-content class="py-4">
+  <form [formGroup]="formularioUsuario" (ngSubmit)="guardarEditar_usuario()" class="space-y-5">
+
+    <!-- Nombre Completo -->
+    <mat-form-field  class="w-full">
+      <mat-label>Nombre Completo</mat-label>
+      <input matInput autocomplete="off" formControlName="nombreCompleto" />
+      <mat-icon matSuffix>account_circle</mat-icon>
+      <mat-error *ngIf="formularioUsuario.get('nombreCompleto')?.invalid && formularioUsuario.get('nombreCompleto')?.touched">
+        El nombre es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Rol -->
+    <mat-form-field  class="w-full">
+      <mat-label>Rol</mat-label>
+      <mat-select formControlName="idRol">
+        <mat-option *ngFor="let item of listaRoles" [value]="item.idRol">
+          {{ item.nombre }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="formularioUsuario.get('idRol')?.invalid && formularioUsuario.get('idRol')?.touched">
+        Debe seleccionar un rol.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Contraseña -->
+    <mat-form-field class="w-full">
+      <mat-label>Contraseña</mat-label>
+      <input matInput [type]="ocultarPassword ? 'password' : 'text'" formControlName="clave" />
+      <button mat-icon-button matSuffix type="button" (click)="ocultarPassword = !ocultarPassword">
+        <mat-icon>{{ ocultarPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="formularioUsuario.get('clave')?.hasError('minlength')">
+        Debe tener al menos 8 caracteres.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Estado -->
+    <mat-form-field  class="w-full">
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="esActivo">
+        <mat-option value="1">Activo</mat-option>
+        <mat-option value="0">No Activo</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Botones -->
+    <div class="flex justify-end space-x-3 pt-4">
+      <button mat-stroked-button mat-dialog-close color="warn" type="button">
+        Cancelar
+      </button>
+      <button mat-raised-button color="primary" [disabled]="formularioUsuario.invalid" type="submit">
+        {{ botonAccion }}
+      </button>
+    </div>
+
+  </form>
+</mat-dialog-content>
