@@ -1,0 +1,132 @@
+mat-toolbar {
+  background-color: #1D4ED8 !important; /* Azul moderado */
+  color: white !important;
+}
+
+.mat-icon {
+  color: white;
+}
+
+.layout-container {
+  display: flex;
+  min-height: calc(100vh - 64px);
+}
+
+.sidebar {
+  width: 260px;
+  background: #1E293B; /* Gris azulado */
+  box-shadow: 2px 0 12px 0 rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 40;
+  padding-top: 1.5rem;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-title {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 0;
+
+  span {
+    background: #22C55E; /* Verde más moderno */
+    color: #fff;
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin-left: 6px;
+    font-weight: 900;
+  }
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0 1rem;
+  margin: 0;
+  flex: 1;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 6px;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1rem;
+
+  &:hover {
+    background: #E0F2FE; /* Azul muy clarito */
+    color: #0F172A; /* Texto azul oscuro */
+  }
+}
+
+.selected-menu-item {
+  background: #E0F2FE;
+  color: #0F172A !important;
+  font-weight: bold;
+}
+
+.menu-item mat-icon {
+  font-size: 24px;
+  color: inherit;
+}
+
+.submenu-arrow {
+  margin-left: auto;
+  font-size: 20px;
+  color: #fff;
+}
+
+.submenu-list {
+  list-style: none;
+  padding-left: 32px;
+  margin: 0;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  transition: background 0.2s, color 0.2s;
+
+  &:hover {
+    background: #E0F2FE;
+    color: #0F172A;
+  }
+}
+
+.selected-menu-item .submenu-item,
+.submenu-item.selected-menu-item {
+  background: #E0F2FE;
+  color: #0F172A !important;
+  font-weight: bold;
+}
+
+.submenu-item mat-icon {
+  font-size: 20px;
+  color: inherit;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0rem;
+  background: #F8FAFC; /* Blanco azulado */
+  min-height: calc(100vh - 64px);
+  overflow: auto;
+}
