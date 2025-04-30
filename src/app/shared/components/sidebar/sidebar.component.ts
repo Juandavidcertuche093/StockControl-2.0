@@ -119,8 +119,8 @@ export class SidebarComponent {
         this.productosStockBajo = data;
       },
       error: (err) => {
-        console.error('Error obteniendo productos con stock bajo', err);
-        this.utilidadService.mostrarAlerta('Error obteniendo productos con stock bajo', 'error');
+        console.error('Error obteniendo medicamentos con stock bajo', err);
+        this.utilidadService.mostrarAlerta('Error obteniendo medicamentos con stock bajo', 'error');
       }
     });
   }

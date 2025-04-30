@@ -11,7 +11,7 @@ import { ResponseApiSesion } from '../../core/interface/response-api-sesion';
 })
 export class NotificacionesService {
 
-  private urlApi:string = environment.API_URL + "Producto/";
+  private urlApi:string = environment.API_URL + "Medicamento/";
 
   private http = inject(HttpClient)
 
