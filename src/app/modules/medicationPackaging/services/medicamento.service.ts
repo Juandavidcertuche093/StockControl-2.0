@@ -11,7 +11,7 @@ import { ResponseApi } from '../../../core/interface/response-api';
 })
 export class MedicamentoService {
 
-  private urlApi: string = environment.API_URL + "Producto/"
+  private urlApi: string = environment.API_URL + "Medicamento/"
 
   private http = inject(HttpClient)
 

@@ -84,7 +84,7 @@ export class MedicationpackagingPagesComponent implements OnInit {
           this.listaMedicamentoEmpaque = data.value
         } else {
           this.listaMedicamentoEmpaque = []; // Limpia la lista si no hay datos
-          this.utilidadServicio.mostrarAlerta('Error al obtener medicamentosEmpaque. Intente más tarde.', 'error');
+          this.utilidadServicio.mostrarAlerta('Error al obtener Empaques. Intente más tarde.', 'error');
         }
         this.loading = false; // Termina carga
       },
@@ -108,7 +108,9 @@ export class MedicationpackagingPagesComponent implements OnInit {
     nuevoMedicamentoEmpaque(){
       this.dialog.open(ModalProductoempaqueComponent,{
         disableClose: true,
-        width: '800px', // o '80%' si prefieres relativo a la ventana
+        width: '600px',        // o '90%' para ocupar casi toda la pantalla
+        maxHeight: '90vh',     // evita scroll innecesario
+        autoFocus: false       // opcional, evita scroll automático al primer input
       }).afterClosed().subscribe(resultado => {
         if(resultado === 'true')this.obtenerMedicamentosEnpaque();
       });

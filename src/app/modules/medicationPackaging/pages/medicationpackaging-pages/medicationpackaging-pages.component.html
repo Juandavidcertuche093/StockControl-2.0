@@ -9,7 +9,7 @@
     <button
       pButton
       type="button"
-      label="Nuevo ProductoEnpaque"
+      label="Nuevo Empaque"
       icon="pi pi-plus"
       class="p-button-primary p-button-raised flex items-center gap-2"
       (click)="nuevoMedicamentoEmpaque()">
@@ -68,8 +68,11 @@
             <th pSortableColumn="descripcionProducto" class="!text-left !py-4 !px-6">medicamento <p-sortIcon field="descripcionMedicamento"></p-sortIcon></th>
             <th pSortableColumn="descripcionPresentacion" class="!text-center !py-4 !px-6">Presentación <p-sortIcon field="descripcionPresentacion"></p-sortIcon></th>
             <th pSortableColumn="cantidad" class="!text-center !py-4 !px-6">Cantidad <p-sortIcon field="cantidad"></p-sortIcon></th>
-            <th pSortableColumn="precioVenta" class="!text-center !py-4 !px-6">PrecioVenta <p-sortIcon field="precioVenta"></p-sortIcon></th>
             <th pSortableColumn="precioCompra" class="!text-center !py-4 !px-6">PrecioCompra<p-sortIcon field="precioVenta"></p-sortIcon></th>
+            <th pSortableColumn="precioVenta" class="!text-center !py-4 !px-6">PrecioVenta <p-sortIcon field="precioVenta"></p-sortIcon></th>
+            <th pSortableColumn="esActivo" class="!text-center !py-4 !px-6">
+              Estado <p-sortIcon field="esActivo"></p-sortIcon>
+            </th>
             <th class="!text-right !py-4 !px-6"></th>
           </tr>
         </ng-template>
@@ -84,9 +87,26 @@
             </td>
             <td class="!text-center !py-4 !px-6 !border-b !text-gray-600">{{ ProductoEnpaque.descripcionPresentacion }}</td>
             <td class="!text-center !py-4 !px-6 !border-b !font-medium !text-gray-700">{{ ProductoEnpaque.cantidad }}</td>
-            <td class="!text-center !py-4 !px-6 !border-b !font-bold !text-blue-600">{{ ProductoEnpaque.precioVenta }}</td>
             <td class="!text-center !py-4 !px-6 !border-b !font-bold !text-blue-600">{{ ProductoEnpaque.precioCompra }}</td>
-            <th pSortableColumn="esActivo" class="text-center w-1/6">Estado <p-sortIcon field="esActivo"></p-sortIcon></th>
+            <td class="!text-center !py-4 !px-6 !border-b !font-bold !text-blue-600">{{ ProductoEnpaque.precioVenta }}</td>
+            <td class="text-center">
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium"
+                [class.bg-green-100]="ProductoEnpaque.esActivo == 1"
+                [class.text-green-800]="ProductoEnpaque.esActivo == 1"
+                [class.bg-red-100]="ProductoEnpaque.esActivo != 1"
+                [class.text-red-800]="ProductoEnpaque.esActivo != 1"
+              >
+                <mat-icon
+                  class="mr-1 text-sm"
+                  [class.text-green-500]="ProductoEnpaque.esActivo == 1"
+                  [class.text-red-500]="ProductoEnpaque.esActivo != 1"
+                >
+                  {{ ProductoEnpaque.esActivo == 1 ? "check_circle" : "cancel" }}
+                </mat-icon>
+                {{ ProductoEnpaque.esActivo == 1 ? "Activo" : "Inactivo" }}
+              </span>
+            </td>
             <td class="!py-4 !px-6">
               <div class="flex justify-end gap-2">
                 <button mat-icon-button color="primary"

@@ -63,7 +63,7 @@ export class ModalProductoempaqueComponent implements OnInit {
     private medicamentoServicio: MedicamentoService
   ){
     this.formularioMedicamentoEnpaque = this.fb.nonNullable.group({
-      idProducto:       ['', [Validators.required]],
+      idMedicamento:    ['', [Validators.required]],
       idPresentacion:   ['', [Validators.required]],
       cantidad:         ['', [Validators.required,]],
       precioVenta:      ['', [Validators.required, Validators.min(1), numeroPositivo]],
@@ -103,10 +103,10 @@ export class ModalProductoempaqueComponent implements OnInit {
         idMedicamento:     this.datosMedicamentoEmpaque.idMedicamento,
         idPresentacion: this.datosMedicamentoEmpaque.idPresentacion,
         cantidad:       this.datosMedicamentoEmpaque.cantidad,
-        precioVenta:    this.datosMedicamentoEmpaque.precioVenta,
-        // precioVenta:    this.convertirPrecio(this.datosMedicamentoEmpaque.precioVenta)
-        precioCompra:    this.datosMedicamentoEmpaque.precioCompra,
-        // precioCompra:    this.convertirPrecio(this.datosMedicamentoEmpaque.precioCompra)
+        // precioVenta:    this.datosMedicamentoEmpaque.precioVenta,
+        precioVenta:    this.convertirPrecio(this.datosMedicamentoEmpaque.precioVenta),
+        // precioCompra:    this.datosMedicamentoEmpaque.precioCompra,
+        precioCompra:    this.convertirPrecio(this.datosMedicamentoEmpaque.precioCompra),
         esActivo:       this.datosMedicamentoEmpaque.esActivo,
       })
   }
@@ -119,18 +119,21 @@ export class ModalProductoempaqueComponent implements OnInit {
   guardarEditar_MedicamentoEnpaque(){
     const _medicamentoEnpaque: MedicamentoEmpaque = {
       idMedicamentoEmpaque: this.datosMedicamentoEmpaque == null ? 0: this.datosMedicamentoEmpaque.idMedicamentoEmpaque,
-      idMedicamento: this.formularioMedicamentoEnpaque.value.idProducto,
+      idMedicamento: this.formularioMedicamentoEnpaque.value.idMedicamento,
       descripcionMedicamento: "",
       idPresentacion: this.formularioMedicamentoEnpaque.value.idPresentacion,
       descripcionPresentacion: "",
       cantidad: this.formularioMedicamentoEnpaque.value.cantidad,
-      precioVenta: this.formularioMedicamentoEnpaque.value.precioVenta,
-      // precioVenta: parseFloat(this.formularioMedicamentoEnpaque.value.precioVenta ?? '0').toString(),
-      precioCompra: this.formularioMedicamentoEnpaque.value.precioCompra,
-      // precioCompra: parseFloat(this.formularioMedicamentoEnpaque.value.precioCompra ?? '0').toString(),
+      // precioVenta: this.formularioMedicamentoEnpaque.value.precioVenta,
+      precioVenta: parseFloat(this.formularioMedicamentoEnpaque.value.precioVenta ?? '0').toString(),
+      // precioCompra: this.formularioMedicamentoEnpaque.value.precioCompra,
+      precioCompra: parseFloat(this.formularioMedicamentoEnpaque.value.precioCompra ?? '0').toString(),
       esActivo: parseInt(this.formularioMedicamentoEnpaque.value.esActivo)
     }
     if(this.datosMedicamentoEmpaque == null){
+
+      // console.log('Datos a enviar a la API:', _medicamentoEnpaque); // <--- Agrega esto
+
       this.medicamentoEnpaqueServicio.guardar(_medicamentoEnpaque)
       .subscribe({
         next: (data) => {

@@ -8,9 +8,9 @@
 
     <!-- Categoría -->
     <mat-form-field appearance="fill" class="w-full">
-      <mat-label>Producto</mat-label>
+      <mat-label>Medicamento</mat-label>
       <mat-select formControlName="idMedicamento">
-        <mat-option *ngFor="let item of listaMedicamento" [value]="item.IdMedicamento">
+        <mat-option *ngFor="let item of listaMedicamento" [value]="item.idMedicamento">
           {{ item.nombre}}
         </mat-option>
       </mat-select>
@@ -44,7 +44,6 @@
       </mat-error>
     </mat-form-field>
 
-    Precio
     <mat-form-field appearance="fill" class="w-full">
       <mat-label>Precio de Compra</mat-label>
       <input matInput type="number" formControlName="precioCompra" autocomplete="off" />
@@ -72,18 +71,18 @@
     </mat-form-field>
 
     <!-- Estado -->
-    <!-- <mat-form-field appearance="fill" class="w-full">
+    <mat-form-field appearance="fill" class="w-full">
       <mat-label>Estado</mat-label>
       <mat-select formControlName="esActivo">
         <mat-option value="1">Activo</mat-option>
         <mat-option value="0">No activo</mat-option>
       </mat-select>
-      <mat-error *ngIf="formularioProduncto.get('esActivo')?.hasError('required')">
+      <mat-error *ngIf="formularioMedicamentoEnpaque.get('esActivo')?.hasError('required')">
         El estado es requerido.
       </mat-error>
     </mat-form-field>
   </form>
-</mat-dialog-content> -->
+</mat-dialog-content>
 
 <mat-dialog-actions align="end" class="pt-4">
   <button mat-stroked-button mat-dialog-close color="warn">Cancelar</button>

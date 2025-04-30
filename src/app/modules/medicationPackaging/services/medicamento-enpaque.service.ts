@@ -30,7 +30,7 @@ export class MedicamentoEnpaqueService {
     guardar(request: MedicamentoEmpaque): Observable<ResponseApi> {
       return this.http.post<ResponseApi>(`${this.urlApi}Guardar`, request).pipe(
         catchError((error) => {
-          console.error('Error al guardar el productoEnpaque:', error);
+          console.error('Error al guardar el medicamentoEnpaque:', error);
           return of({ status: false, msg: 'Error al guardar el medicamentoEmpaque', value: null });
         })
       );
@@ -39,7 +39,7 @@ export class MedicamentoEnpaqueService {
     editar(request: MedicamentoEmpaque): Observable<ResponseApi> {
       return this.http.put<ResponseApi>(`${this.urlApi}Editar`, request).pipe(
         catchError((error) => {
-          console.error('Error al editar el producntoEmpaque:', error);
+          console.error('Error al editar el medicamentoEmpaque:', error);
           return of({ status: false, msg: 'Error al editar el medicamentoEmpaque', value: null });
         })
       );
