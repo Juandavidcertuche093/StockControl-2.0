@@ -1,5 +1,5 @@
 export interface Medicamento {
-  IdMedicamento:           number;
+  idMedicamento:        number;
   nombre:               string;
   idCategoria:          number;
   descripcionCategoria: string;
