@@ -1,0 +1,32 @@
+table {
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.mat-header-cell {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151; // gray-700
+}
+
+.mat-cell {
+  font-size: 0.95rem;
+  color: #1f2937; // gray-800
+}
+
+.mat-form-field {
+  font-size: 0.95rem;
+}
+
+::ng-deep [mat-dialog-title] {
+  color: white !important;
+}
