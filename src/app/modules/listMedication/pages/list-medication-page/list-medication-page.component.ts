@@ -98,14 +98,14 @@ export class ListMedicationPageComponent implements OnInit {
                 return response.value;
             } else {
                 // Mostrar alerta si no hay datos, pero continuar con array vacío
-                this.utilidadServicio.mostrarAlerta('No se encontraron datos', 'warning');
+                this.utilidadServicio.mostrarAlerta('Error al obtener medicamentos. Intenata mas tarde', 'error');
                 return [];
             }
         }),
         catchError(error => {
             console.error('Error al obtener medicamentos:', error); // Es bueno loguear el error real
             // Mostrar alerta de error y continuar con array vacío
-            this.utilidadServicio.mostrarAlerta('Error al obtener productos', 'error');
+            // this.utilidadServicio.mostrarAlerta('Error al obtener productos', 'error');
             return of([]); // Devuelve un observable con un array vacío para que forkJoin no falle
         })
     );

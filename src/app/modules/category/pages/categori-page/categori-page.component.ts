@@ -84,7 +84,7 @@ export class CategoriPageComponent implements OnInit {
           this.listaCategoria = data.value
         } else {
           this.listaCategoria = [] //limpia la lista de los datos
-          this.utilidadServicio.mostrarAlerta('No se encontraron datos', 'warning');
+          this.utilidadServicio.mostrarAlerta('Error al obtener categorias. Intente más tarde.', 'error');
         }
         this.loading = false //termina la carga
       },
