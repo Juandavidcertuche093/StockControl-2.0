@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:5297/api/'
+  // API_URL: 'http://localhost:5297/api/'
+  API_URL: 'https://apisitemaventadrogeria-03-1.onrender.com/api/'
+
 };
 
 /*
