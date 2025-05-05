@@ -4,6 +4,6 @@
 
 export const environment = {
   production: true,
-  API_URL: 'https://tu-api-de-produccion.com/api/'
+  API_URL: 'https://apisitemaventadrogeria-03-1.onrender.com/api/'
 
 };
